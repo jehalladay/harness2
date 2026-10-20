@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/reactive/experiment-evidence-v1.schema.json",
+  "title": "Draft ProposerVisibleExperimentEvidence v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "experiment_id",
+    "candidate_definition_digest",
+    "baseline_definition_digest",
+    "runtime_kind",
+    "workload_digest",
+    "validity",
+    "reports"
+  ],
+  "properties": {
+    "schema": {
+      "const": "reactive.experiment-evidence/v1"
+    },
+    "experiment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_definition_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "baseline_definition_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "runtime_kind": {
+      "enum": [
+        "reactive-agents",
+        "opencode-rf"
+      ]
+    },
+    "workload_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "execution_verified",
+        "trace_complete",
+        "replay_supported"
+      ],
+      "properties": {
+        "execution_verified": {
+          "type": "boolean"
+        },
+        "trace_complete": {
+          "type": "boolean"
+        },
+        "replay_supported": {
+          "type": "boolean"
+        }
+      }
+    },
+    "reports": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trace_ref": {
+          "type": "string"
+        },
+        "context_diff_ref": {
+          "type": "string"
+        },
+        "graph_diff_ref": {
+          "type": "string"
+        },
+        "qa_report_ref": {
+          "type": "string"
+        },
+        "lx_report_ref": {
+          "type": "string"
+        },
+        "performance_ref": {
+          "type": "string"
+        },
+        "visual_evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
