@@ -30,8 +30,10 @@ RF-CLI continues unchanged as an independent tool for agents. Its future federat
 5. [Candidate lifecycle and search](05-candidate-lifecycle-and-recursive-search.md) — typed mutations, invariants, candidate state machine and selection/holdout separation.
 6. [Host-independent public ports](06-port-federation-and-sdk-ownership.md) — owner-qualified identities, snapshot/cursor semantics, SDK package boundaries and optional RF-CLI peer.
 7. [Visual feedback and evidence fusion](07-visual-feedback-and-evidence-fusion.md) — generic Scrawl-first annotation evidence, time/correlation confidence and QA/LX.
-8. [Draft portable protocol schemas](contracts/README.md) — candidate, definition, context projection and proposer-visible evidence schemas/fixture; not runtime implementation.
-9. [Companion DevTools laboratory](https://github.com/jehalladay/ReactiveFiberDevTools/blob/main/docs/design/harness2-reactive-experiment-lab-2026-10-20.md) and [visual provider design](https://github.com/jehalladay/ReactiveFiberDevTools/blob/main/docs/design/visual-annotation-evidence-provider-2026-10-20.md).
+8. [Cross-repository package ownership and phased integration](08-cross-repository-implementation-map.md) — implementation program links, producer/consumer authority and critical-path gates.
+9. [Fork developer guide](09-developer-start-and-integration-tests.md) — concrete Harness² source modifications, OpenCode probe, Python bridge, typed candidates, negative fixtures and clean installed tests.
+10. [Draft portable protocol schemas](contracts/README.md) — candidate, definition, context projection and proposer-visible evidence schemas/fixture; not runtime implementation.
+11. [Companion DevTools laboratory](https://github.com/jehalladay/ReactiveFiberDevTools/blob/main/docs/design/harness2-reactive-experiment-lab-2026-10-20.md) and [visual provider design](https://github.com/jehalladay/ReactiveFiberDevTools/blob/main/docs/design/visual-annotation-evidence-provider-2026-10-20.md).
 
 ## Existing program authority, not duplicated
 
