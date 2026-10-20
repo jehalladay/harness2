@@ -1,0 +1,37 @@
+{
+  "schema": "reactive.candidate-patch/v1",
+  "candidate_id": "build-error-context-v1",
+  "base_definition_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "hypothesis": {
+    "problem": "Too much irrelevant build-log context",
+    "predicted_observation": "Less context without missing failing-file evidence",
+    "success_measure": "Held-out verified fix rate at matched task and compute budget"
+  },
+  "mutations": [
+    {
+      "op_id": "m1",
+      "op": "component.create",
+      "target_ref": "component:build-error-selection",
+      "new_artifact_digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "preconditions": [
+        "source:build-errors-visible"
+      ],
+      "read_set": [
+        "source:build-errors",
+        "source:task-changed-files"
+      ],
+      "declared_effects": [],
+      "scope": "candidate-only",
+      "expected_outputs": [
+        "port:selected-build-failures"
+      ]
+    }
+  ],
+  "validation_profile": "reactive-context-pure-v1",
+  "artifact_refs": [
+    {
+      "artifact": "components/build_error_selection.py",
+      "digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    }
+  ]
+}
