@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/reactive/context-projection-v1.schema.json",
+  "title": "Draft ContextProjection v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "request_id",
+    "run_id",
+    "session_id",
+    "definition_digest",
+    "graph_generation",
+    "status",
+    "source_cut_ref",
+    "blocks",
+    "receipt_ref"
+  ],
+  "properties": {
+    "schema": {
+      "const": "reactive.context-projection/v1"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "definition_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "graph_generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "enum": [
+        "READY",
+        "PENDING",
+        "UNAVAILABLE",
+        "WITHHELD",
+        "INVALID",
+        "STALE"
+      ]
+    },
+    "source_cut_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "block_id",
+          "text",
+          "inclusion",
+          "provenance_refs"
+        ],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string"
+          },
+          "inclusion": {
+            "enum": [
+              "included",
+              "excluded"
+            ]
+          },
+          "provenance_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "receipt_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "token_budget": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "counted_tokens": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
