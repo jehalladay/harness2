@@ -26,7 +26,12 @@ RF-CLI continues unchanged as an independent tool for agents. Its future federat
 1. [Runtime and OpenCode integration](01-runtime-and-opencode.md) — precise source seams, execution modes, protocol, lifecycle, compaction, migration and plugin behavior.
 2. [Harness definition, mutation algebra and federation](02-definition-mutations-federation.md) — canonical candidate artifacts, admission, schema, graph transitions and public ports.
 3. [Experiment evidence, DevTools and delivery](03-experiments-qa-lx-roadmap.md) — headless LX/QA lab, judge boundaries, benchmark matrix, work breakdown, acceptance gates.
-4. Companion DevTools addendum in `ReactiveFiberDevTools/docs/design/harness2-reactive-experiment-lab-2026-10-20.md`.
+4. [OpenCode bridge correctness](04-opencode-bridge-and-render-correctness.md) — pinned hook behavior, provisional plugin mode, identity/compaction gating, IPC, prompt injection boundaries.
+5. [Candidate lifecycle and search](05-candidate-lifecycle-and-recursive-search.md) — typed mutations, invariants, candidate state machine and selection/holdout separation.
+6. [Host-independent public ports](06-port-federation-and-sdk-ownership.md) — owner-qualified identities, snapshot/cursor semantics, SDK package boundaries and optional RF-CLI peer.
+7. [Visual feedback and evidence fusion](07-visual-feedback-and-evidence-fusion.md) — generic Scrawl-first annotation evidence, time/correlation confidence and QA/LX.
+8. [Draft portable protocol schemas](contracts/README.md) — candidate, definition, context projection and proposer-visible evidence schemas/fixture; not runtime implementation.
+9. [Companion DevTools laboratory](https://github.com/jehalladay/ReactiveFiberDevTools/blob/main/docs/design/harness2-reactive-experiment-lab-2026-10-20.md) and [visual provider design](https://github.com/jehalladay/ReactiveFiberDevTools/blob/main/docs/design/visual-annotation-evidence-provider-2026-10-20.md).
 
 ## Existing program authority, not duplicated
 
