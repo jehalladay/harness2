@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/reactive/harness-definition-v1.schema.json",
+  "title": "Draft ReactiveHarnessDefinition v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "definition_id",
+    "revision",
+    "runtime",
+    "graph_ref",
+    "components",
+    "context",
+    "federation",
+    "authority_requirements"
+  ],
+  "properties": {
+    "schema": {
+      "const": "reactive.harness-definition/v1"
+    },
+    "definition_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "engine",
+        "mode"
+      ],
+      "properties": {
+        "engine": {
+          "enum": [
+            "reactive-agents",
+            "opencode-adapter"
+          ]
+        },
+        "mode": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "graph_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact",
+        "digest"
+      ],
+      "properties": {
+        "artifact": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*\\.\\./).+$"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "implementation",
+          "digest",
+          "purity",
+          "input_ports",
+          "output_ports"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "implementation": {
+            "type": "string",
+            "pattern": "^components/[A-Za-z0-9_.-]+\\.py$"
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "purity": {
+            "enum": [
+              "pure",
+              "declared_effect"
+            ]
+          },
+          "input_ports": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "output_ports": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "view",
+        "budget_policy"
+      ],
+      "properties": {
+        "view": {
+          "type": "string",
+          "minLength": 1
+        },
+        "budget_policy": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "feature_plan_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "federation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exports",
+        "imports"
+      ],
+      "properties": {
+        "exports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "imports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "authority_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_protocol": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
